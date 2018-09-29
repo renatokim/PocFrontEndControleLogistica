@@ -1,0 +1,228 @@
+<div class="row" style="margin-top:15px">
+  <div class="col-md-12">
+    <div class="card">
+      <h5 class="card-header">
+        Informações da coleta
+		
+		<div>{{ btnSalvarDisabled() }} {{ btnSalvar }} {{ clienteDestinatario | json }} {{ cliente | json }} {{ veiculoColeta | json }}</div>
+
+		
+      </h5>
+      <div class="card-body" style="padding:10px">
+        <form class="form">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Remetente
+              </label>
+              <select [(ngModel)]="cliente.id" (change)="selecionarRemente(cliente.id)" class="form-control" name="cliente.id">
+                <option value="0"></option>
+                <option value="1">PUC Minas</option>
+                <option value="2">Avançar</option>
+                <option value="3">Líder</option>
+				<option value="4">Segura</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <label>
+                Endereço de coleta
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.logradouro" class="form-control" name="cliente.logradouro">
+            </div>
+            <div class="col-12 col-sm-6 col-md-2 col-lg-1">
+              <label>
+                Nº
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.numero" class="form-control" name="cliente.numero">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Bairro
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.bairro" class="form-control" name="cliente.bairro">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Cep
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.cep" class="form-control" name="cliente.cep">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                UF
+              </label>
+              <select class="form-control" [(ngModel)]="cliente.uf" readonly="readonly" name="cliente.uf">
+                <option></option>
+                <option value="1">ESPÍRITO SANTO - ES</option>
+                <option value="2">MINAS GERAIS - MG</option>
+                <option value="3">RIO DE JANEIRO - RJ</option>
+                <option value="4">SÃO PAULO - SP</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Cidade
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.cidade" class="form-control" name="cliente.cidade">
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Destinatario
+              </label>
+              <select [(ngModel)]="clienteDestinatario.id" (change)="selecionarDestinatario(clienteDestinatario.id)" class="form-control" name="clienteDestinatario.id">
+                <option value="0"></option>
+                <option value="1">PUC Minas</option>
+                <option value="2">Avançar</option>
+                <option value="3">Líder</option>
+				<option value="4">Segura</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <label>
+                Endereço de coleta
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.logradouro" class="form-control" name="clienteDestinatario.logradouro">
+            </div>
+            <div class="col-12 col-sm-6 col-md-2 col-lg-1">
+              <label>
+                Nº
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.numero" class="form-control" name="clienteDestinatario.numero">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Bairro
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.bairro" class="form-control" name="clienteDestinatario.bairro">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Cep
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.cep" class="form-control" name="clienteDestinatario.cep">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                UF
+              </label>
+              <select class="form-control" [(ngModel)]="clienteDestinatario.uf" readonly="readonly" name="clienteDestinatario.uf">
+                <option></option>
+                <option value="1">ESPÍRITO SANTO - ES</option>
+                <option value="2">MINAS GERAIS - MG</option>
+                <option value="3">RIO DE JANEIRO - RJ</option>
+                <option value="4">SÃO PAULO - SP</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Cidade
+              </label>
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.cidade" class="form-control" name="clienteDestinatario.cidade">
+            </div>		
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+              <label>
+                Data Coleta
+              </label>
+              <input type="date" [(ngModel)]="dataColeta" class="form-control" name="dataColeta" >
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+              <label>
+                Data Entrega
+              </label>
+              <input type="date" [(ngModel)]="dataEntrega" class="form-control" name="dataEntrega" >
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Veículo coleta
+              </label>			
+              <select class="form-control" [(ngModel)]="veiculoColeta" name="veiculoColeta">
+                <option value="0"></option>
+                <option value="1">MOTO</option>
+                <option value="2">CAMINHONETE</option>
+                <option value="3">CAMINHÃO</option>
+              </select>
+            </div>			
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Quantidade volumes
+              </label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Valor do Frete
+              </label>
+              <input type="text" readonly="readonly" class="form-control" >
+            </div>
+          </div>
+          <a style="margin-top: 10px" class="btn {{ btn }} {{ btnSalvarDisabled() }}" href="#">{{ textoBtn }}</a>
+		  <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-12">
+    <table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Data
+          </th>
+          <th>
+            Remetente
+          </th>
+          <th>
+            UF Coleta
+          </th>
+          <th>
+            Destinatário
+          </th>		  
+          <th>
+            UF Entrega
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Ação
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            02/08/2018
+          </td>
+          <td>
+            Líder Aviação
+          </td>
+          <td>
+            MG
+          </td>
+          <td>
+            Avançar
+          </td>		  
+          <td>
+            SP
+          </td>
+          <td>
+            Coletado
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+              <a class="btn btn-warning" (click)="editar(1)" >
+                Editar
+              </a>
+              <a class="btn btn-danger" (click)="excluir(1)" >
+                Excluir
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

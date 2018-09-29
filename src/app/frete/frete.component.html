@@ -1,0 +1,92 @@
+<div class="row" style="margin-top:15px">
+  <div class="col-md-12">
+    <div class="card">
+      <h5 class="card-header">
+        Tabela de fretes 
+    
+    <h6>{{frete | json}}</h6>
+      </h5>
+
+      <div class="card-body" style="padding:10px">
+        <form class="form">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <label>
+                UF
+              </label>			
+    
+      
+      
+    <select class="form-control" name="uf" [(ngModel)]="frete.Uf"> 
+      <option *ngFor="let uf of ufs" value="{{uf.id}}">{{uf.descricao}}</option>
+    </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <label>
+                Veículo
+              </label>
+              <select class="form-control" name="frota" [(ngModel)]="frete.Frota"> 
+                <option *ngFor="let frota of frotas" value="{{frota.id}}">{{frota.descricao}}</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <label>
+                Valor
+              </label>
+              <input type="text" class="form-control" name="valor" [(ngModel)]="frete.Valor">
+            </div>
+          </div>
+          <a style="margin-top: 10px" class="btn {{btn}} {{frete.uf == 0 || frete.frota == 0 || frete.valor == '' ? 'disabled' : ''}}" (click)="salvar(frete)">{{textoBtn}}</a>
+    <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-12">
+    <table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>
+            UF
+          </th>
+          <th>
+            Veículo
+          </th>
+          <th>
+            Valor
+          </th>
+          <th>
+            Ação
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+  
+<tr *ngFor="let frete of fretes">
+          <td>
+            {{ frete.Uf }}
+          </td>
+          <td>
+            {{ frete.Frota }}
+          </td>
+          <td>
+            {{frete.Valor}}
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+              <a class="btn btn-warning" (click)="editar(frete)">
+                Editar
+              </a>
+              <a class="btn btn-danger" (click)="excluir(frete)">
+                Excluir
+              </a>
+            </div>
+          </td>
+</tr>		
+
+      </tbody>
+    </table>
+  </div>
+</div>
