@@ -1,15 +1,16 @@
 export class Cliente {
 	constructor() {
-		this.id = 0;
+		this.Id = 0;
+		this.Nome = "";
 
 	}
 
-    id: number;
-	nome: string;
-    logradouro: string;
-	numero: string;
-	bairro: string;
-	cep: string;
-	uf: string;
-	cidade: string;
+    Id: number;
+	Nome: string;
+    Endereco: string;
+	Numero: string;
+	Bairro: string;
+	Cp: string;
+	Uf: string;
+	Cidade: string;
   }

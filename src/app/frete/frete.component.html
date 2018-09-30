@@ -4,7 +4,6 @@
       <h5 class="card-header">
         Tabela de fretes 
       </h5>
-
       <div class="card-body" style="padding:10px">
         <form class="form">
           <div class="row">
@@ -12,12 +11,9 @@
               <label>
                 UF
               </label>			
-    
-      
-      
-    <select class="form-control" name="uf" [(ngModel)]="frete.Uf"> 
-      <option *ngFor="let uf of ufs" value="{{uf.id}}">{{uf.descricao}}</option>
-    </select>
+              <select class="form-control" name="uf" [(ngModel)]="frete.Uf"> 
+                <option *ngFor="let uf of ufs" value="{{uf.id}}">{{uf.descricao}}</option>
+              </select>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
               <label>
@@ -35,7 +31,7 @@
             </div>
           </div>
           <a style="margin-top: 10px" class="btn {{btn}} {{frete.uf == 0 || frete.frota == 0 || frete.valor == '' ? 'disabled' : ''}}" (click)="salvar(frete)">{{textoBtn}}</a>
-    <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
+          <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
         </form>
       </div>
     </div>
@@ -61,29 +57,27 @@
         </tr>
       </thead>
       <tbody>
-  
-<tr *ngFor="let frete of fretes">
-          <td>
-            {{ frete.Uf }}
-          </td>
-          <td>
-            {{ frete.Frota }}
-          </td>
-          <td>
-            {{frete.Valor}}
-          </td>
-          <td>
-            <div class="btn-group" role="group">
-              <a class="btn btn-warning" (click)="editar(frete)">
-                Editar
-              </a>
-              <a class="btn btn-danger" (click)="excluir(frete)">
-                Excluir
-              </a>
-            </div>
-          </td>
-</tr>		
-
+      <tr *ngFor="let frete of fretes">
+        <td>
+          {{ frete.Uf }}
+        </td>
+        <td>
+          {{ frete.Frota }}
+        </td>
+        <td>
+          {{frete.Valor}}
+        </td>
+        <td>
+          <div class="btn-group" role="group">
+            <a class="btn btn-warning" (click)="editar(frete)">
+              Editar
+            </a>
+            <a class="btn btn-danger" (click)="excluir(frete)">
+              Excluir
+            </a>
+          </div>
+        </td>
+      </tr>		
       </tbody>
     </table>
   </div>

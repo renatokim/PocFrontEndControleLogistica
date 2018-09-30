@@ -6,75 +6,69 @@
         Expedição
       </h5>
       <div class="card-body" style="padding:10px">
-<form class="form">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <label>
-          Data
-        </label>
-        <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Logradouro">		
-      </div>	
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <label>
-          Previsão Entrega
-        </label>
-        <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Logradouro">		
-      </div>	
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <label>
-          UF
-        </label>
-        <select class="form-control">
-          <option></option>
-          <option>ESPÍRITO SANTO - ES</option>
-          <option>MINAS GERAIS - MG</option>
-          <option>RIO DE JANEIRO - RJ</option>
-          <option>SÃO PAULO - SP</option>
-        </select>				
-      </div>	
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-      
-        <label>
-          Motorista
-        </label>
-        <select class="form-control">
-          <option></option>
-          <option>RENATO</option>
-        </select>					
-  
-      </div>
-      
-      
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <label>
-          Veículo
-        </label>
-        <select class="form-control">
-          <option></option>
-          <option>MOTO</option>
-          <option>CAMINHONETE</option>
-          <option>CAMINHÃO</option>
-        </select>				
-      </div>	
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-        <label>
-          Rota
-        </label>
-        <input type="text" class="form-control" readonly="readonly">				
-      </div>
-      
-        
-                
-    </div>	
-  
-<a class="btn btn-primary" href="#">Salvar</a>	
+        <form class="form">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Data
+              </label>
+              <input type="date" class="form-control" name="rota.DataCriacao" [(ngModel)]="rota.DataCriacao">
+            </div>	
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Previsão Entrega
+              </label>
+              <input type="date" class="form-control" name="rota.DataEntrega" [(ngModel)]="rota.DataEntrega">
+            </div>	
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                UF
+              </label>
+              <select class="form-control" name="rota.UfId" [(ngModel)]="rota.UfId">
+                <option value=""></option>
+                <option value="4">ES</option>
+                <option value="1">MG</option>
+                <option value="2">RJ</option>
+                <option value="3">SP</option>
+              </select>				
+            </div>	
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            
+              <label>
+                Motorista
+              </label>
+              <select class="form-control" name="rota.FuncionarioId" [(ngModel)]="rota.FuncionarioId">
+                <option></option>
+                <option value="1">RENATO</option>
+              </select>					
+            </div>
 
-
-  
-</form>
-    
-    
-    <table class="table table-condensed table-bordered">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Veículo
+              </label>
+              <select class="form-control" name="rota.FrotaId" [(ngModel)]="rota.FrotaId">
+                <option></option>
+                <option value="1">MOTO</option>
+                <option value="2">CAMINHONETE</option>
+                <option value="3">CAMINHÃO</option>
+              </select>				
+            </div>	
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+              <label>
+                Rota
+              </label>
+              <input type="text" class="form-control" readonly="readonly">				
+            </div>
+            
+              
+                      
+          </div>	
+          <div style="margin-top: 20px">
+            <a class="btn btn-primary" (click)="salvar()">Salvar</a>	
+          </div>
+        </form>
+        <!--<table class="table table-condensed table-bordered">
       <thead>
         <tr>
           <th>
@@ -120,19 +114,11 @@
 
         </tr>
       </tbody>
-    </table>			
-
-</div>
-
-</div>				
-      
-      
-
+    </table>-->
+      </div>
+    </div>				
   </div>
 </div>
-
-
-
 
 <div class="row" style="margin-top: 15px">
   <div class="col-md-12">
@@ -141,18 +127,15 @@
         <tr>
           <th>
             Data
+          </th>          
+          <th>
+            Previsão Entrega
+          </th>
+          <th>
+              UF Entrega
           </th>
           <th>
             Rota
-          </th>
-          <th>
-            Previsão entrega
-          </th>
-          <th>
-            UF Entrega
-          </th>
-          <th>
-            Status
           </th>
           <th>
             Ação
@@ -160,28 +143,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+          <tr *ngFor="let rota of rotas">
           <td>
-            02/08/2018
+            {{ rota.Data }}
           </td>
           <td>
-            Líder Aviação
+              {{ rota.DataEntrega }}
           </td>
           <td>
-            MG
+              {{ rota.UfEntrega }}
           </td>
           <td>
-            SP
-          </td>
-          <td>
-            Coletado
-          </td>						
+              {{ rota.Rota }}
+          </td>				
           <td>
             <div class="btn-group" role="group">
-            <a class="btn btn-warning" href="#">
+            <a class="btn btn-warning">
               Editar
             </a>
-            <a class="btn btn-danger" href="#">
+            <a class="btn btn-danger">
               Excluir
             </a>
             </div>							

@@ -1,6 +1,13 @@
 export class Rota {
-    titulo: string;
-    descricao: string;
-    dataInicio: Date;
-    dataFim: Date;
+	constructor() {
+		this.Id = 0;
+		this.Rota = "";
+	}
+
+    Id: number;
+    Titulo: string;
+    Rota: string;    
+    Descricao: string;
+    DataInicio: Date;
+    DataFim: Date;
   }

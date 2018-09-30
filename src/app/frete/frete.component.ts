@@ -22,7 +22,8 @@ export class FreteComponent implements OnInit {
   constructor(private http:  HttpClient) { }
 
   ngOnInit() {
-    this.baseUrl = "http://localhost:50143";
+    this.baseUrl = "http://projetoj.apphb.com/";
+    //this.baseUrl = "http://localhost:50143";
     this.buscarFretes();
     this.frete = new Frete();
 

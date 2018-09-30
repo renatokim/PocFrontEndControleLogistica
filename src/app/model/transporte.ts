@@ -1,7 +1,13 @@
 export class Transporte {
-    titulo: string;
-    descricao: string;
-    dataInicio: Date;
-    dataFim: Date;
-	
-  }
+	constructor() {
+		this.Id = 0;
+		this.IdRota = 0;
+	}
+
+	Id: number;
+	IdRemetente: number;
+	IdDestinatario: number;
+	DataColeta: Date;
+	DataEntrega: Date;
+	IdRota: number;
+}

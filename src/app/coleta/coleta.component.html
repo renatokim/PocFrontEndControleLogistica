@@ -3,11 +3,10 @@
     <div class="card">
       <h5 class="card-header">
         Informações da coleta
-		
-		<div>{{ btnSalvarDisabled() }} {{ btnSalvar }} {{ clienteDestinatario | json }} {{ cliente | json }} {{ veiculoColeta | json }}</div>
-
-		
       </h5>
+      <div>
+        {{ transporte | json }}
+      </div>      
       <div class="card-body" style="padding:10px">
         <form class="form">
           <div class="row">
@@ -15,109 +14,95 @@
               <label>
                 Remetente
               </label>
-              <select [(ngModel)]="cliente.id" (change)="selecionarRemente(cliente.id)" class="form-control" name="cliente.id">
-                <option value="0"></option>
-                <option value="1">PUC Minas</option>
-                <option value="2">Avançar</option>
-                <option value="3">Líder</option>
-				<option value="4">Segura</option>
+              <select [(ngModel)]="cliente.Id" (change)="selecionarRemente(cliente.Id)" class="form-control" name="cliente.Id">
+                  <option *ngFor="let cliente of clientes" value="{{ cliente.Id }}">{{ cliente.Nome }}</option>
               </select>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <label>
                 Endereço de coleta
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="cliente.logradouro" class="form-control" name="cliente.logradouro">
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Endereco" class="form-control" name="cliente.Endereco">
             </div>
             <div class="col-12 col-sm-6 col-md-2 col-lg-1">
               <label>
                 Nº
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="cliente.numero" class="form-control" name="cliente.numero">
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Numero" class="form-control" name="cliente.Numero">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Bairro
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="cliente.bairro" class="form-control" name="cliente.bairro">
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Bairro" class="form-control" name="cliente.Bairro">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Cep
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="cliente.cep" class="form-control" name="cliente.cep">
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Cep" class="form-control" name="cliente.Cep">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 UF
               </label>
-              <select class="form-control" [(ngModel)]="cliente.uf" readonly="readonly" name="cliente.uf">
-                <option></option>
-                <option value="1">ESPÍRITO SANTO - ES</option>
-                <option value="2">MINAS GERAIS - MG</option>
-                <option value="3">RIO DE JANEIRO - RJ</option>
-                <option value="4">SÃO PAULO - SP</option>
-              </select>
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Uf" class="form-control" name="cliente.Uf">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Cidade
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="cliente.cidade" class="form-control" name="cliente.cidade">
+              <input type="text" readonly="readonly" [(ngModel)]="cliente.Cidade" class="form-control" name="cliente.Cidade">
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
               <label>
                 Destinatario
               </label>
-              <select [(ngModel)]="clienteDestinatario.id" (change)="selecionarDestinatario(clienteDestinatario.id)" class="form-control" name="clienteDestinatario.id">
-                <option value="0"></option>
-                <option value="1">PUC Minas</option>
-                <option value="2">Avançar</option>
-                <option value="3">Líder</option>
-				<option value="4">Segura</option>
-              </select>
+              <select [(ngModel)]="clienteDestinatario.Id" (change)="selecionarDestinatario(clienteDestinatario.Id)" class="form-control" name="clienteDestinatario.Id">
+                  <option *ngFor="let cliente of clientes" value="{{ cliente.Id }}">{{ cliente.Nome }}</option>
+              </select>              
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <label>
                 Endereço de coleta
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.logradouro" class="form-control" name="clienteDestinatario.logradouro">
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.Endereco" class="form-control" name="clienteDestinatario.Endereco">
             </div>
             <div class="col-12 col-sm-6 col-md-2 col-lg-1">
               <label>
                 Nº
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.numero" class="form-control" name="clienteDestinatario.numero">
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.Numero" class="form-control" name="clienteDestinatario.Numero">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Bairro
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.bairro" class="form-control" name="clienteDestinatario.bairro">
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.Bairro" class="form-control" name="clienteDestinatario.Bairro">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Cep
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.cep" class="form-control" name="clienteDestinatario.cep">
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.Cep" class="form-control" name="clienteDestinatario.Cep">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 UF
               </label>
-              <select class="form-control" [(ngModel)]="clienteDestinatario.uf" readonly="readonly" name="clienteDestinatario.uf">
+              <select class="form-control" [(ngModel)]="clienteDestinatario.Uf" readonly="readonly" name="clienteDestinatario.Uf">
                 <option></option>
-                <option value="1">ESPÍRITO SANTO - ES</option>
-                <option value="2">MINAS GERAIS - MG</option>
-                <option value="3">RIO DE JANEIRO - RJ</option>
-                <option value="4">SÃO PAULO - SP</option>
+                <option value="1">ES</option>
+                <option value="2">MG</option>
+                <option value="3">RJ</option>
+                <option value="4">SP</option>
               </select>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
                 Cidade
               </label>
-              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.cidade" class="form-control" name="clienteDestinatario.cidade">
+              <input type="text" readonly="readonly" [(ngModel)]="clienteDestinatario.Cidade" class="form-control" name="clienteDestinatario.Cidade">
             </div>		
             <div class="col-12 col-sm-6 col-md-3 col-lg-3">
               <label>
@@ -133,13 +118,10 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
               <label>
-                Veículo coleta
+                Rota
               </label>			
-              <select class="form-control" [(ngModel)]="veiculoColeta" name="veiculoColeta">
-                <option value="0"></option>
-                <option value="1">MOTO</option>
-                <option value="2">CAMINHONETE</option>
-                <option value="3">CAMINHÃO</option>
+              <select [(ngModel)]="coleta.IdRota" class="form-control" name="coleta.IdRota">
+                <option *ngFor="let rota of rotas" value="{{ rota.Id }}">{{ rota.Rota }}</option>
               </select>
             </div>			
             <div class="col-12 col-sm-6 col-md-4 col-lg-2">
@@ -155,8 +137,8 @@
               <input type="text" readonly="readonly" class="form-control" >
             </div>
           </div>
-          <a style="margin-top: 10px" class="btn {{ btn }} {{ btnSalvarDisabled() }}" href="#">{{ textoBtn }}</a>
-		  <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
+          <a style="margin-top: 10px" class="btn {{ btn }} {{ btnSalvarDisabled() }}" (click)="salvar()">{{ textoBtn }}</a>
+		      <a style="margin-top: 10px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="!exibirBtnCancelar" (click)="cancelar()">Cancelar</a>
         </form>
       </div>
     </div>
@@ -169,7 +151,7 @@
       <thead>
         <tr>
           <th>
-            Data
+            Previsão Entrega
           </th>
           <th>
             Remetente
@@ -192,24 +174,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+          <tr *ngFor="let transporte of transportes">
           <td>
-            02/08/2018
+            {{ transporte.PrevisaoEntrega }}
           </td>
           <td>
-            Líder Aviação
+            {{ transporte.ClienteColeta }}
           </td>
           <td>
-            MG
+            {{ transporte.UfRemetente }}
           </td>
           <td>
-            Avançar
+              {{ transporte.ClienteEntrega }}
           </td>		  
           <td>
-            SP
+              {{ transporte.UfDestinatario }}
           </td>
           <td>
-            Coletado
+              {{ transporte.Status }}
           </td>
           <td>
             <div class="btn-group" role="group">
