@@ -35,7 +35,7 @@ export class ColetaComponent implements OnInit {
   }
 
   ngOnInit() {
-	this.baseUrl = "http://projetoj.apphb.com/";
+	this.baseUrl = "https://projetoj.apphb.com/";
 	//this.baseUrl = "http://localhost:50143";
 
 	this.buscarColetas();
