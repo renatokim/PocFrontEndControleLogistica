@@ -35,8 +35,7 @@ export class FreteComponent implements OnInit {
     this.exibirBtnCancelar = false;
   }
   
-  buscarFretes = function()
-  {
+  buscarFretes = function() {
     this.http.get(this.baseUrl + "/api/v1/fretes_grid").subscribe(data => {
       this.fretes = data;
     });    
