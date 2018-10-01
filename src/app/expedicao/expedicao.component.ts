@@ -14,7 +14,7 @@ export class ExpedicaoComponent implements OnInit {
   constructor(private http:  HttpClient) { }
 
   ngOnInit() {
-    this.baseUrl = "http://projetoj.apphb.com/";
+    this.baseUrl = "https://projetoj.apphb.com/";
     //this.baseUrl = "http://localhost:50143";
     this.rota = {};
     this.buscarRotas();
