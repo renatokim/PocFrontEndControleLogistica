@@ -27,7 +27,7 @@ export class FreteComponent implements OnInit {
     this.buscarFretes();
     this.frete = new Frete();
 
-    this.ufs = [{"id":1, "descricao":"MG"}, {"id":2, "descricao":"RJ"}, {"id":3, "descricao":"SP"}, {"id":3, "descricao":"ES"}];
+    this.ufs = [{"id":1, "descricao":"MG"}, {"id":2, "descricao":"RJ"}, {"id":3, "descricao":"SP"}, {"id":4, "descricao":"ES"}];
     this.frotas = [{"id":1, "descricao":"MOTO"}, {"id":2, "descricao":"CAMINHONETE"}, {"id":3, "descricao":"CAMINHÃO"}];
     
     this.btn = "btn-primary";
