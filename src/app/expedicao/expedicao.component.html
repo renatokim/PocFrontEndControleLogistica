@@ -1,5 +1,6 @@
 <div class="row" style="margin-top:15px">
   <div class="col-md-12">			
+
     <div class="card">
       <h5 class="card-header">
         Expedição
@@ -57,14 +58,15 @@
               <label>
                 Rota
               </label>
-              <input type="text" class="form-control" readonly="readonly">				
+              <input type="text" class="form-control" readonly="readonly" name="rota.RotaId" [(ngModel)]="rota.RotaId">				
             </div>
             
               
                       
           </div>	
           <div style="margin-top: 20px">
-            <a class="btn btn-primary" (click)="salvar()">Salvar</a>	
+            <a class="btn {{btn}}" (click)="salvar()">{{textoBtn}}</a>
+			      <a style="margin-top: 0px; margin-left: 5px" class="btn btn-outline-secondary" [hidden]="textoBtn=='Salvar'" (click)="cancelar()">Cancelar</a>
           </div>
         </form>
         <!--<table class="table table-condensed table-bordered">
@@ -157,10 +159,10 @@
           </td>				
           <td>
             <div class="btn-group" role="group">
-            <a class="btn btn-warning">
+              <a class="btn btn-warning" (click)="editar(rota.Id)">
               Editar
             </a>
-            <a class="btn btn-danger">
+            <a class="btn btn-danger" (click)="excluir(rota.Id)">
               Excluir
             </a>
             </div>							
